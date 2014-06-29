@@ -18,13 +18,13 @@ Find the words at these indexes and display them with a " " between them: 12 -1 
 '''
 import re
 def indexString( val, indexs ):
+    words = []
     vals =re.findall("[a-zA-Z0-9]+",val)
-    print (vals)
     for index in indexs:
         if(index > 0 and index < len(vals)+1):
-            print (vals[index-1], " ")
+            words.append(vals[index-1])
+    return ' '.join(words)
 
 inputString = "...You...!!!@!3124131212 Hello have this is a --- string Solved !!...? to test @\n\n\n#!#@#@%$**#$@ Congratz this!!!!!!!!!!!!!!!!one ---Problem\n\n"
 indexs = [12, -1, 1, -100, 4, 1000, 9, -1000, 16, 13, 17, 15]
-indexString( inputString, indexs )
-
+print(indexString( inputString, indexs ))
